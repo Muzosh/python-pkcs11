@@ -1628,7 +1628,7 @@ cdef class lib:
         except StopIteration:
             return token
 
-    def wait_for_slot_event(self, blocking=True):
+    def wait_for_slot_event(self, blocking=True, sleep_duration):
         cdef CK_SLOT_ID slot_id
         cdef CK_FLAGS flag = 0
 
@@ -1637,10 +1637,8 @@ cdef class lib:
 
         with nogil:
             assertRV(_funclist.C_WaitForSlotEvent(flag, &slot_id, NULL))
-        print("PYX - WaitForSlotEvent returned")
-        print(slot_id)
         cdef CK_SLOT_INFO info
-        sleep(5)
+        sleep(sleep_duration)
         with nogil:
             assertRV(_funclist.C_GetSlotInfo(slot_id, &info))
 
