@@ -22,6 +22,7 @@ ELSE:
 from ._pkcs11_defn cimport *
 include '_errors.pyx'
 include '_utils.pyx'
+from time import sleep
 
 from . import types
 from .defaults import *
