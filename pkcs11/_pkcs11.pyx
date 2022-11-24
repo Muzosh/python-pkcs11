@@ -1639,7 +1639,7 @@ cdef class lib:
         print("PYX - WaitForSlotEvent returned")
         print(slot_id)
         cdef CK_SLOT_INFO info
-
+        sleep(5)
         with nogil:
             assertRV(_funclist.C_GetSlotInfo(slot_id, &info))
 
