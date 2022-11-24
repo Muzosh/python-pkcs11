@@ -1628,7 +1628,7 @@ cdef class lib:
         except StopIteration:
             return token
 
-    def wait_for_slot_event(self, blocking=True, sleep_duration):
+    def wait_for_slot_event(self, blocking=True, sleep_duration=0):
         cdef CK_SLOT_ID slot_id
         cdef CK_FLAGS flag = 0
 
