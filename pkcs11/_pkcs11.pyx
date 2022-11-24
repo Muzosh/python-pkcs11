@@ -1636,7 +1636,8 @@ cdef class lib:
 
         with nogil:
             assertRV(_funclist.C_WaitForSlotEvent(flag, &slot_id, NULL))
-
+        print("PYX - WaitForSlotEvent returned")
+        print(slot_id)
         cdef CK_SLOT_INFO info
 
         with nogil:
